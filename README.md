@@ -69,6 +69,40 @@ Every decision is permanently recorded in a **SHA-256 tamper-evident hash chain*
 
 ---
 
+## 📸 Interface & Live Showcase
+
+### 📊 Real-Time Security Operations Dashboard
+Real-time monitoring of AI agent actions, active threat alerts, multi-factor risk distribution, and tri-state decision telemetry.
+
+![AgentShield Security Dashboard](screenshots/dashboard.png)
+
+### ⚡ Interactive Action Simulator & Policy Engine
+Pre-execution interception and evaluation of simulated agent actions against security rules.
+
+![Action Simulator](screenshots/simulator.png)
+
+### 🔗 Cryptographic Tamper-Evident Audit Log
+SHA-256 block-linked audit ledger with one-click cryptographic chain integrity verification.
+
+![Audit Logs and Integrity Verification](screenshots/audit.png)
+
+### 🧪 Automated Red-Team Attack Simulation
+Built-in 8-scenario penetration test suite validating firewall defense against OWASP LLM top threats with 100% pass rate.
+
+![Attack Simulation](screenshots/simulation.png)
+
+### ⚙️ Dynamic Security Policy Management
+Real-time toggles and threshold configurations for access control and data privacy policies.
+
+![Security Policies](screenshots/policies.png)
+
+### 👥 Human-in-the-Loop (HITL) Approval Center
+Dedicated review queue for operations requiring human supervisor intervention before execution.
+
+![Approval Center](screenshots/approvals.png)
+
+---
+
 ## 🌟 Key Features
 
 | Feature | Description |
@@ -117,6 +151,13 @@ AgentShield/
 │   ├── index.html              # HTML5 entry with modern typography (Inter, Outfit)
 │   ├── package.json            # Node.js dependencies (React 19, React Router 7, Vite)
 │   └── vite.config.js          # Vite bundler configuration
+├── screenshots/                # Application UI showcases & dashboard captures
+│   ├── dashboard.png           # Main SecOps dashboard
+│   ├── simulator.png           # Pre-execution action evaluator
+│   ├── audit.png               # SHA-256 tamper-evident audit ledger
+│   ├── simulation.png          # Red team attack simulation suite
+│   ├── policies.png            # Dynamic security policies
+│   └── approvals.png           # HITL approval workflow
 ├── agentshield_sdk.py          # Zero-dependency Python Client SDK for Agent Frameworks
 ├── start.bat                   # 1-click Windows startup script
 ├── start.sh                    # 1-click Unix/macOS startup script
