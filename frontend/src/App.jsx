@@ -93,17 +93,24 @@ export default function App() {
             <div className="error-banner" style={{ margin: '16px 32px 0' }}>
               <span>&#x26A0;</span>
               <span>
-                Cannot connect to backend API. Please start the backend server:
-                <code style={{
-                  marginLeft: 8,
-                  padding: '2px 8px',
-                  background: 'rgba(0,0,0,0.3)',
-                  borderRadius: 4,
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: 12,
-                }}>
-                  cd backend &amp;&amp; python main.py
-                </code>
+                Cannot connect to backend API.{' '}
+                {import.meta.env.PROD ? (
+                  'The backend service may be starting up — please retry in a moment.'
+                ) : (
+                  <>
+                    Please start the backend server:
+                    <code style={{
+                      marginLeft: 8,
+                      padding: '2px 8px',
+                      background: 'rgba(0,0,0,0.3)',
+                      borderRadius: 4,
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: 12,
+                    }}>
+                      cd backend &amp;&amp; python main.py
+                    </code>
+                  </>
+                )}
               </span>
               <button className="btn btn-outline btn-sm" onClick={checkBackend} style={{ marginLeft: 'auto' }}>
                 Retry

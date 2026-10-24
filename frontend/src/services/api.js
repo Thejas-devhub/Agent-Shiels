@@ -3,7 +3,14 @@
  * All backend communication goes through here.
  */
 
-const API_BASE = 'http://localhost:8000/api';
+// Strip trailing slash from the base URL, then append /api exactly once.
+// Priority: VITE_API_BASE_URL (production) → VITE_API_URL (legacy) → localhost dev fallback
+const _rawBase =
+  import.meta.env.VITE_API_BASE_URL ||
+  import.meta.env.VITE_API_URL ||
+  'http://localhost:8000';
+
+const API_BASE = _rawBase.replace(/\/+$/, '') + '/api';
 
 async function request(endpoint, options = {}) {
   const url = `${API_BASE}${endpoint}`;
@@ -19,7 +26,12 @@ async function request(endpoint, options = {}) {
     return res.json();
   } catch (err) {
     if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
-      throw new Error('Cannot connect to AgentShield API. Is the backend running on port 8000?');
+      throw new Error(
+        'Cannot connect to backend API. ' +
+        (import.meta.env.PROD
+          ? 'The backend service may be starting up — please retry in a moment.'
+          : 'Please start the backend server: cd backend && python main.py')
+      );
     }
     throw err;
   }
